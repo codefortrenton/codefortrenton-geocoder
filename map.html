@@ -9,6 +9,7 @@
 
 	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
+        
 	<style>
 		body {
 			padding: 0;
@@ -37,18 +38,9 @@
 
                 var district_boundary = new L.geoJson();
                 district_boundary.addTo(map);
-                
-                $.ajax(
-                {
-                dataType: "json",
-                url: "snow.geojson",
-                success: function(data) {
-                $(data.features).each(function(key, data) {
-                district_boundary.addData(data);
-                });
-                }
-                }).error(function() {});
-                
+                var geojsonLayer = new L.GeoJSON.AJAX("snow.geojson");       
+                geojsonLayer.addTo(map);
+                              
                 
 		function onLocationFound(e) {
 			var radius = e.accuracy / 2;
