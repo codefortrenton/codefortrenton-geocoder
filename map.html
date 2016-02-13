@@ -34,7 +34,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		id: 'mapbox.streets'
 	    }).addTo(map);
 
-$.getJSON("./snow.json", function(data) {
+$.getJSON("./snow.geojson", function(data) {
     
     var geojson = L.geoJson(data,
                             {
