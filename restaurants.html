@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dkan example</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        
+
+</head>
+<body>
+  <p id=dataname>
+  <script>
+    var url = "http://live-codefortrenton.pantheon.io/api/action/datastore/search.jsonp?resource_id=2a760b76-c16a-462f-ab63-3ad7a3283210&limit=5";
+  
+    $.ajax( url, {
+    dataType:'jsonp',
+    crossDomain: true,
+    jsonpCallback:'myCallback'
+    });
+    function myCallback( data ) {
+    //alert(data)
+    $('#dataname').text( JSON.stringify(data) );
+}
+      
+</script>
+</body>
+</html>
